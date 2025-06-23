@@ -1,9 +1,11 @@
 from django.contrib import admin
 from .models import Incident
 from import_export.admin import ImportExportModelAdmin
+from . import resourses as tripping_resources
 
 @admin.register(Incident)
 class IncidentAdmin(ImportExportModelAdmin):
+    resource_class = tripping_resources.TrippingDataResources
     list_display = [
         'id', 'spv', 'voltage_level', 'line_name', 'criticality', 'financial_year',
         'tower_span_no', 'site_head', 'month', 'incident_date', 'incident_time',
@@ -16,11 +18,12 @@ class IncidentAdmin(ImportExportModelAdmin):
         'asset_ageing_at_event', 'asset_age_years', 'business_unit', 'event_count',
         'ptw_availed', 'ptw_returned', 'net_outage_hours', 'man_on_job',
         'manhours', 'vehicle_km', 'vehicle_cost', 'rm_cost',
-        'transportation_cost', 'breakdown_cost', 'fy_week_no',
+        'transportation_cost', 'breakdown_cost', 'fy_week_no'
     ]
  
     search_fields = ['spv', 'line_name', 'region', 'financial_year']
     list_filter = ['financial_year', 'voltage_level', 'spv']
+    date_hierarchy = 'created_at'
 
 
  

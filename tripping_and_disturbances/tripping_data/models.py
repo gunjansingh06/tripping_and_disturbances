@@ -47,6 +47,8 @@ class Incident(models.Model):
     transportation_cost = models.FloatField(blank=True, null=True)
     breakdown_cost = models.IntegerField()
     fy_week_no = models.CharField(max_length=200,blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def _str_(self):
         return f"{self.spv} | {self.line_name} | {self.incident_date}"
