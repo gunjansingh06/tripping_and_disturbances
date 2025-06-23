@@ -1,0 +1,109 @@
+  {% load static %}
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Incident Dashboard</title>
+    <link rel="stylesheet" href="{% static 'tripping_data/css/dashboard.css' %}"> 
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="{% static 'tripping_data/js/dashboard.js' %}"></script>
+  </head>
+  <body>
+
+  <header>
+    <div class="header-container">
+      <div class="header-left">
+        <img src="{% static 'tripping_data/images/logo.png' %}" alt="Logo" class="logo-img">
+      </div>
+      <div class="header-center">
+        <span class="dashboard-title">TRIPPING & DISTUBANCE DASHBOARD</span>
+      </div>
+    </div>
+  </header>
+
+
+
+    <div class="container">
+
+      <!-- Top Cards -->
+      <div class="card-row">
+        <div class="card">Tripping Count: <strong>10</strong></div>
+        <div class="card">Forced Outages: <strong>4</strong></div>
+        <div class="card">AR Success: <strong>2</strong></div>
+        <div class="card">LFL Count: <strong>1</strong></div>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters">
+        <select><option>Financial Year</option></select>
+        <select><option>Site Head</option></select>
+        <select><option>Month</option></select>
+      </div>
+
+      <!-- Graphs -->
+      <div class="graphs">
+        <div class="graph">
+    <div class="graph-header">
+      <p><strong>Overall Tripping / 100 CKM (Sh wise)</strong></p>
+      <select>
+        <option value="">Select Graph</option>
+        <option value="sc">Super Critical</option>
+        <option value="c">Critical</option>
+        <option value="nc">Non-Critical</option>
+      </select>
+    </div>
+    <div class="graph-placeholder" id="chart1"></div>
+
+  </div>
+
+        <div class="graph">
+          <p><strong>SPV Wise Tripping / 100 CKM</strong></p>
+              <div class="graph-placeholder" id="chart2"></div>
+
+        </div>
+      </div>
+
+      <!-- Tripping Disturbance Report -->
+      <div class="report">
+        <h3>Tripping Disturbance Report</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>SPV</th>
+              <th>Line Name</th>
+              <th>Criticality</th>
+              <th>Incident Date</th>
+              <th>Disturbance Type</th>
+              <th>Disturbance Category</th>
+              <th>Outage (hrs)</th>
+              <th>Risk Factor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SPV-A</td>
+              <td>Line-X</td>
+              <td>High</td>
+              <td>2025-06-01</td>
+              <td>Forced</td>
+              <td>Major</td>
+              <td>3.5</td>
+              <td>High</td>
+            </tr>
+            <!-- More rows can be added dynamically -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Bottom Graph -->
+  <div class="bottom-graph">
+    <select><option>Disturbance Type</option></select>
+      <div class="graph-placeholder" id="chart3"></div>
+
+  </div>
+
+
+    </div>
+
+  </body>
+  </html>

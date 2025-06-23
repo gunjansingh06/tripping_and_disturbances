@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from .views import IncidentListAPIView
+from tripping_data import views
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
-    # path('tripping_data/', include('tripping_data.urls'))
+    path('api/incidents/', IncidentListAPIView.as_view(), name='incident-list'),
+    path('dashboard/', views.dashboard, name='incident-dashboard'),
 ]
