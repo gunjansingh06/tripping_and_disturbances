@@ -210,3 +210,5 @@ function populateDropdowns(data) {
     headSelect.innerHTML = '<option>Site Head</option>' + [...headSet].map(v => `<option>${v}</option>`).join('');
     monthSelect.innerHTML = '<option>Month</option>' + [...monthSet].map(v => `<option>${v}</option>`).join('');
 }
+
+

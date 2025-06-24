@@ -18,8 +18,10 @@ from django.contrib import admin
 from django.urls import path,include
 from .views import IncidentListAPIView
 from tripping_data import views
+from .views import TrippingCountView
 
 urlpatterns = [
     path('api/incidents/', IncidentListAPIView.as_view(), name='incident-list'),
     path('dashboard/', views.dashboard, name='incident-dashboard'),
+    path('api/tripping-count/', TrippingCountView.as_view(), name='tripping-count'),
 ]
