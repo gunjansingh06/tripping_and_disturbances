@@ -60,6 +60,7 @@ function initializeChart(data) {
     if (!container) return;
 
     const monthlyData = Array(12).fill(0);
+    console.log("Data for monthly chart:", monthlyData);
     data.forEach(item => {
         const date = new Date(item.incident_date);
         const monthIndex = date.getMonth();
@@ -170,6 +171,7 @@ function initializeChart3(data) {
 
 // Step 8: Table Rows
 function populateTable(data) {
+    console.log("Populating table with data:", data);
     const tbody = document.querySelector(".report tbody");
     tbody.innerHTML = '';
 

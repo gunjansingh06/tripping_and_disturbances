@@ -19,9 +19,14 @@ from django.urls import path,include
 from .views import IncidentListAPIView
 from tripping_data import views
 from .views import TrippingCountView
+from .views import FilterOptionView
+
 
 urlpatterns = [
     path('api/incidents/', IncidentListAPIView.as_view(), name='incident-list'),
     path('dashboard/', views.dashboard, name='incident-dashboard'),
     path('api/tripping-count/', TrippingCountView.as_view(), name='tripping-count'),
+    path('api/filter-options/', FilterOptionView.as_view(), name='filter-options'),
+
+
 ]
